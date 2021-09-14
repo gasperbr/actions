@@ -1,37 +1,44 @@
-name: Push artifacts to another repository
-
-on: push
-
-env:
-  API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-
-jobs:
-  copy_artifacts_folder:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: cpina/github-action-push-to-another-repository@main
-        with:
-          source-directory: 'artifacts'
-          destination-directory: 'artifacts'
-          destination-github-username: 'gasperbr'
-          destination-repository-name: 'actions-output'
-          user-email: 'gasper@sushi.com'
-          target-branch: master
-
-# name: Push generated webpage to another repository
+# name: Push artifacts to another repository
+# 
 # on: push
+# 
+# env:
+#   API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+# 
 # jobs:
 #   copy_artifacts_folder:
 #     runs-on: ubuntu-latest
 #     steps:
-#       - uses: nkoppel/push-files-to-another-repository@v1.1.1
+#       - uses: actions/checkout@v2
+#       - uses: cpina/github-action-push-to-another-repository@main
 #         with:
-#           source-file: 'artifacts'
-#           destination-username: 'gasperbr'
-#           destination-repository: 'actions-output'
+#           source-directory: 'artifacts'
 #           destination-directory: 'artifacts'
-#           commit-email: 'gasper@sushi.com'
-#           user_email: 'example@email.com'
-#           user_name: 'dmnemec'
-#           commit_message: 'A custom message for the commit'
+#           destination-github-username: 'gasperbr'
+#           destination-repository-name: 'actions-output'
+#           user-email: 'gasper@sushi.com'
+#           target-branch: master
+# ^ works for 1 directory
+
+name: Push File
+
+on: push
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test folder
+      uses: crykn/copy_folder_to_another_repo_action@v1.0.6
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_folder: 'artifacts'
+        destination_repo: 'gasperbr/actions-output'
+        destination_folder: 'artifacts'
+        user_email: 'gasper@sushi.com'
+        user_name: 'gasperbr'
+        # commit_msg: 'Update the artifacts. files.'
