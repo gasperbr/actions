@@ -16,6 +16,7 @@ jobs:
           destination-github-username: 'gasperbr'
           destination-repository-name: 'actions-output'
           user-email: 'gasper@sushi.com'
+          target-branch: master
   copy_artifacts_folder:
     runs-on: ubuntu-latest
     steps:
@@ -26,3 +27,4 @@ jobs:
           destination-github-username: 'gasperbr'
           destination-repository-name: 'actions-output'
           user-email: 'gasper@sushi.com'
+          target-branch: master
