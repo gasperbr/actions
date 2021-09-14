@@ -6,7 +6,8 @@ jobs:
   copy_deployments_folder:
     runs-on: ubuntu-latest
     steps:
-      - uses: cpina/github-action-push-to-another-repository@v1.3
+      - uses: darkquasar/github-action-push-to-another-repository@v1.3
+      # - uses: cpina/github-action-push-to-another-repository@v1.3
         with:
           # Source directory from the origin directory
           source-directory: deployments
