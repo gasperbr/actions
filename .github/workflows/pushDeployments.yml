@@ -1,4 +1,4 @@
-name: Push directory to another repository
+name: Push deployments to another repository
 
 on: push
 
