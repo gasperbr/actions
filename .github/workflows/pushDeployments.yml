@@ -1,19 +1,19 @@
-name: Push deployments to another repository
-
-on: push
-
-env:
-    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-
-jobs:
-  copy_deployments_folder:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: cpina/github-action-push-to-another-repository@main
-        with:
-          source-directory: 'deployments'
-          destination-github-username: 'gasperbr'
-          destination-repository-name: 'actions-output'
-          user-email: 'gasper@sushi.com'
-          target-branch: master
+#name: Push deployments to another repository
+#
+#on: push
+#
+#env:
+#    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#
+#jobs:
+#  copy_deployments_folder:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: cpina/github-action-push-to-another-repository@main
+#        with:
+#          source-directory: 'deployments'
+#          destination-github-username: 'gasperbr'
+#          destination-repository-name: 'actions-output'
+#          user-email: 'gasper@sushi.com'
+#          target-branch: master
