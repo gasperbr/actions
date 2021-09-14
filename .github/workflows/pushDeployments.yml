@@ -2,6 +2,9 @@ name: Push directory to another repository
 
 on: push
 
+env:
+    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+
 jobs:
   copy_deployments_folder:
     runs-on: ubuntu-latest
