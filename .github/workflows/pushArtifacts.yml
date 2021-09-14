@@ -26,7 +26,7 @@ jobs:
   copy_artifacts_folder:
     runs-on: ubuntu-latest
     steps:
-      - uses: nkoppel/push-files-to-another-repository
+      - uses: nkoppel/push-files-to-another-repository@main
         with:
           source-files: 'artifacts/'
           destination-username: 'gasperbr'
