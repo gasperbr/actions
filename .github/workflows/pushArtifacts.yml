@@ -1,35 +1,37 @@
-#name: Push artifacts to another repository
-#
-#on: push
-#
-#env:
-#    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-#
-#jobs:
-#  copy_artifacts_folder:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: cpina/github-action-push-to-another-repository@main
-#        with:
-#          source-directory: 'artifacts'
-#          destination-github-username: 'gasperbr'
-#          destination-repository-name: 'actions-output'
-#          user-email: 'gasper@sushi.com'
-#          target-branch: master
+name: Push artifacts to another repository
 
-name: Push generated webpage to another repository
 on: push
+
 env:
-      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+  API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+
 jobs:
   copy_artifacts_folder:
     runs-on: ubuntu-latest
     steps:
-      - uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
+      - uses: actions/checkout@v2
+      - uses: cpina/github-action-push-to-another-repository@main
         with:
-          source-files: 'artifacts/'
-          destination-username: 'gasperbr'
-          destination-repository: 'actions-output'
+          source-directory: 'artifacts'
           destination-directory: 'artifacts'
-          commit-email: 'gasper@sushi.com'
+          destination-github-username: 'gasperbr'
+          destination-repository-name: 'actions-output'
+          user-email: 'gasper@sushi.com'
+          target-branch: master
+
+# name: Push generated webpage to another repository
+# on: push
+# jobs:
+#   copy_artifacts_folder:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: nkoppel/push-files-to-another-repository@v1.1.1
+#         with:
+#           source-file: 'artifacts'
+#           destination-username: 'gasperbr'
+#           destination-repository: 'actions-output'
+#           destination-directory: 'artifacts'
+#           commit-email: 'gasper@sushi.com'
+#           user_email: 'example@email.com'
+#           user_name: 'dmnemec'
+#           commit_message: 'A custom message for the commit'
