@@ -14,10 +14,10 @@ jobs:
       # - uses: cpina/github-action-push-to-another-repository@v1.3
         with:
           # Source directory from the origin directory
-          source-directory: deployments
+          source-directory: 'deployments'
           # Name of the destination username/organization
-          destination-github-username: gasperbr
+          destination-github-username: 'gasperbr'
           # Destination repository
-          destination-repository-name: actions-output
+          destination-repository-name: 'actions-output'
           # Email for the git commit
-          user-email: gasper@sushi.com
+          user-email: 'gasper@sushi.com'
