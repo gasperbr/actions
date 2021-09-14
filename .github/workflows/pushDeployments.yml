@@ -9,16 +9,20 @@ jobs:
   copy_deployments_folder:
     runs-on: ubuntu-latest
     steps:
-      # - uses: darkquasar/github-action-push-to-another-repository@v1.3
       - uses: actions/checkout@v2
       - uses: cpina/github-action-push-to-another-repository@main
-      # - uses: cpina/github-action-push-to-another-repository@v1.3
         with:
-          # Source directory from the origin directory
           source-directory: 'deployments'
-          # Name of the destination username/organization
           destination-github-username: 'gasperbr'
-          # Destination repository
           destination-repository-name: 'actions-output'
-          # Email for the git commit
+          user-email: 'gasper@sushi.com'
+  copy_artifacts_folder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cpina/github-action-push-to-another-repository@main
+        with:
+          source-directory: 'artifacts'
+          destination-github-username: 'gasperbr'
+          destination-repository-name: 'actions-output'
           user-email: 'gasper@sushi.com'
